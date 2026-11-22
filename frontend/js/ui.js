@@ -21,8 +21,8 @@
     { label: "Alquiler y Servicios", categories: [expenseCategories[1], expenseCategories[2]] },
     { label: "Otros Operativos", categories: [expenseCategories[3], expenseCategories[5], expenseCategories[6]] },
   ];
-  const incomeState = { records: [], filtered: [], page: 0, request: 0 };
-  const expenseState = { records: [], filtered: [], page: 0, request: 0, receiptFilter: "" };
+  const incomeState = { records: [], filtered: [], page: 0, request: 0, total: 0 };
+  const expenseState = { records: [], filtered: [], page: 0, request: 0, receiptFilter: "", total: 0 };
   const pageSize = 10;
   const dashboardMovementState = { page: 0, total: 0, request: 0, loading: false, pageSize: 6, period: "todos" };
   const dashboardTimeSeriesState = { page: 0, totalPoints: 0 };
@@ -127,21 +127,14 @@
     return api;
   }
 
-  async function fetchAll(endpoint, filters) {
-    const results = [];
-    let offset = 0;
-    const limit = 500;
-    while (true) {
-      const params = new URLSearchParams(Object.assign({}, filters, {
-        limit: String(limit),
-        offset: String(offset),
-      }));
-      const page = await requireApi().apiFetch(endpoint + "?" + params.toString());
-      if (!Array.isArray(page)) throw new Error("La API devolvió una lista de registros inválida.");
-      results.push.apply(results, page);
-      if (page.length < limit) return results;
-      offset += page.length;
-    }
+  async function fetchPage(endpoint, filters, state) {
+    const params = new URLSearchParams(Object.assign({}, filters, {
+      limit: String(pageSize),
+      offset: String(state.page * pageSize),
+    }));
+    const page = await requireApi().apiFetch(endpoint + "?" + params.toString());
+    if (!Array.isArray(page)) throw new Error("La API devolvió una lista de registros inválida.");
+    return page;
   }
 
   function setTextNode(element, value) {
@@ -417,9 +410,10 @@
 
   function paginationControls(footer, state, onPageChange, resultLabel) {
     if (!footer) return;
-    const start = state.filtered.length ? state.page * pageSize + 1 : 0;
-    const end = Math.min((state.page + 1) * pageSize, state.filtered.length);
-    const pageCount = Math.max(1, Math.ceil(state.filtered.length / pageSize));
+    const total = Number.isFinite(state.total) ? state.total : state.filtered.length;
+    const start = total ? state.page * pageSize + 1 : 0;
+    const end = Math.min((state.page + 1) * pageSize, total);
+    const pageCount = Math.max(1, Math.ceil(total / pageSize));
     const summary = createElement("span", "font-body-sm text-body-sm text-on-surface-variant");
     summary.appendChild(document.createTextNode("Mostrando "));
     summary.appendChild(createElement("strong", "text-on-surface", start + "–" + end));
@@ -467,7 +461,7 @@
     const tbody = document.getElementById("incomeTableBody");
     if (!tbody) return;
     tbody.hidden = false;
-    const records = incomeState.filtered.slice(incomeState.page * pageSize, (incomeState.page + 1) * pageSize);
+    const records = incomeState.filtered;
     if (!records.length) setEmptyRow(tbody, 7, "No hay ingresos que coincidan con los filtros.");
     else {
       tbody.replaceChildren.apply(tbody, records.map(incomeRow));
@@ -475,7 +469,7 @@
     }
     paginationControls(incomeFooter(), incomeState, function (page) {
       incomeState.page = page;
-      renderIncomePage();
+      loadIngresos(true);
     }, "ingresos");
   }
 
@@ -531,11 +525,11 @@
   async function loadIngresos(showErrors) {
     const requestId = ++incomeState.request;
     try {
-      const records = await fetchAll("/ingresos", getIncomeFilters());
+      const records = await fetchPage("/ingresos", getIncomeFilters(), incomeState);
       if (requestId !== incomeState.request) return;
       incomeState.records = records;
       incomeState.filtered = records;
-      incomeState.page = 0;
+      incomeState.total = Number(records.__totalCount ?? records.length);
       updateIncomeKPIs(records);
       renderIncomePage();
     } catch (error) {
@@ -618,7 +612,7 @@
     const tbody = document.getElementById("expenseTableBody");
     if (!tbody) return;
     tbody.hidden = false;
-    const records = expenseState.filtered.slice(expenseState.page * pageSize, (expenseState.page + 1) * pageSize);
+    const records = expenseState.filtered;
     if (!records.length) setEmptyRow(tbody, 8, "No hay salidas que coincidan con los filtros.");
     else {
       tbody.replaceChildren.apply(tbody, records.map(expenseRow));
@@ -626,18 +620,18 @@
     }
     paginationControls(expenseFooter(), expenseState, function (page) {
       expenseState.page = page;
-      renderExpensePage();
+      loadSalidas(true);
     }, "salidas registradas");
   }
 
   async function loadSalidas(showErrors) {
     const requestId = ++expenseState.request;
     try {
-      const records = await fetchAll("/salidas", getExpenseFilters());
+      const records = await fetchPage("/salidas", getExpenseFilters(), expenseState);
       if (requestId !== expenseState.request) return;
       expenseState.records = records;
       expenseState.filtered = applyReceiptFilter(records);
-      expenseState.page = 0;
+      expenseState.total = Number(records.__totalCount ?? records.length);
       updateExpenseKPIs(expenseState.filtered);
       renderExpensePage();
     } catch (error) {
@@ -1177,6 +1171,7 @@
     let timer;
     function scheduleLoad() {
       window.clearTimeout(timer);
+      incomeState.page = 0;
       timer = window.setTimeout(function () { loadIngresos(true); }, 250);
     }
     search.addEventListener("input", scheduleLoad);
@@ -1237,6 +1232,7 @@
     let timer;
     function scheduleLoad() {
       window.clearTimeout(timer);
+      expenseState.page = 0;
       timer = window.setTimeout(function () { loadSalidas(true); }, 250);
     }
     search.addEventListener("input", scheduleLoad);

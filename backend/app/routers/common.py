@@ -43,11 +43,12 @@ def apply_text_search(query: Any, search: str | None, columns: tuple[str, ...]) 
     return query.or_(filters)
 
 
-def fetch_page(query: Any, limit: int, offset: int) -> list[dict[str, Any]]:
+def fetch_page(query: Any, limit: int, offset: int) -> tuple[list[dict[str, Any]], int]:
     response = execute_query(
         query.order("fecha", desc=True).range(offset, offset + limit - 1)
     )
-    return response.data or []
+    total = int(response.count or len(response.data or []))
+    return response.data or [], total
 
 
 def first_row(response: Any) -> dict[str, Any]:

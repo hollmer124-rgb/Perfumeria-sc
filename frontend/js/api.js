@@ -82,7 +82,15 @@
     }
 
     if (response.status === 204) return null;
-    return response.json();
+    const payload = await response.json();
+    const totalCount = response.headers.get("X-Total-Count");
+    if (Array.isArray(payload) && totalCount !== null) {
+      Object.defineProperty(payload, "__totalCount", {
+        value: Number(totalCount),
+        enumerable: false,
+      });
+    }
+    return payload;
   }
 
   async function downloadBlob(endpoint) {

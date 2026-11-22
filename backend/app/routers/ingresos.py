@@ -2,7 +2,7 @@ from datetime import date
 from typing import Annotated, Any
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response, status
 from supabase import Client
 
 from app.database import execute_query, get_authenticated_client
@@ -15,6 +15,7 @@ router = APIRouter(prefix="/api/ingresos", tags=["Ingresos"])
 
 @router.get("", response_model=list[IngresoRead])
 def list_ingresos(
+    response: Response,
     search: Annotated[str | None, Query(max_length=100)] = None,
     fecha_inicio: date | None = None,
     fecha_fin: date | None = None,
@@ -23,7 +24,7 @@ def list_ingresos(
     offset: int = Query(default=0, ge=0),
     client: Client = Depends(get_authenticated_client),
 ) -> list[dict[str, Any]]:
-    query = client.table("ingresos").select("*")
+    query = client.table("ingresos").select("*", count="exact")
     query = apply_text_search(
         query,
         search,
@@ -32,7 +33,9 @@ def list_ingresos(
     query = apply_date_range(query, fecha_inicio, fecha_fin)
     if metodo_pago:
         query = query.eq("metodo_pago", metodo_pago.strip())
-    return fetch_page(query, limit, offset)
+    rows, total = fetch_page(query, limit, offset)
+    response.headers["X-Total-Count"] = str(total)
+    return rows
 
 
 @router.post("", response_model=IngresoRead, status_code=status.HTTP_201_CREATED)
