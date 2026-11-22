@@ -1,10 +1,8 @@
 import logging
-from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
 from app.routers import auth, dashboard, ingresos, reportes, salidas
@@ -52,6 +50,3 @@ app.include_router(ingresos.router)
 app.include_router(salidas.router)
 app.include_router(dashboard.router)
 app.include_router(reportes.router)
-
-frontend_dir = Path(__file__).resolve().parents[2] / "frontend"
-app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")

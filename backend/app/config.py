@@ -6,7 +6,9 @@ from pydantic import BaseModel, ConfigDict
 
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
-load_dotenv(BACKEND_DIR / ".env", override=False)
+ENV_FILE = BACKEND_DIR / ".env"
+if ENV_FILE.is_file():
+    load_dotenv(ENV_FILE, override=False)
 
 
 class Settings(BaseModel):

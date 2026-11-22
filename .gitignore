@@ -1,10 +1,17 @@
 _referencia_diseño
 SPEC.md
 
+# Repository and local secrets
+.env
+.env.*
+!.env.example
+backend/.env
+
 # Python virtual environments
 .venv/
 .venv-*/
 venv/
+backend/venv/
 
 # Python generated files and test caches
 __pycache__/
@@ -29,3 +36,7 @@ htmlcov/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Reference material
+_referencia_diseno/
+_referencia_diseño/
