@@ -127,14 +127,20 @@
   }
 
   async function fetchAll(endpoint, filters) {
+    const results = [];
+    let offset = 0;
     const limit = 500;
-    const params = new URLSearchParams(Object.assign({}, filters, {
-      limit: String(limit),
-      offset: "0",
-    }));
-    const page = await requireApi().apiFetch(endpoint + "?" + params.toString());
-    if (!Array.isArray(page)) throw new Error("La API devolvió una lista de registros inválida.");
-    return page;
+    while (true) {
+      const params = new URLSearchParams(Object.assign({}, filters, {
+        limit: String(limit),
+        offset: String(offset),
+      }));
+      const page = await requireApi().apiFetch(endpoint + "?" + params.toString());
+      if (!Array.isArray(page)) throw new Error("La API devolvió una lista de registros inválida.");
+      results.push.apply(results, page);
+      if (page.length < limit) return results;
+      offset += page.length;
+    }
   }
 
   function setTextNode(element, value) {
