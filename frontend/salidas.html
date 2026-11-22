@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-container":"#fffbff","on-error":"#ffffff","on-secondary":"#ffffff","on-primary-fixed-variant":"#00504a","outline-variant":"#bdc9c6","surface-container-high":"#dce9ff","on-secondary-fixed-variant":"#920028","surface-container":"#e5eeff","on-tertiary":"#ffffff","surface-dim":"#cbdbf5","tertiary":"#495167","on-secondary-fixed":"#40000c","surface-variant":"#d3e4fe","primary-fixed":"#9cf2e8","inverse-on-surface":"#eaf1ff","on-error-container":"#93000a","background":"#f8f9ff","surface-bright":"#f8f9ff","surface-container-highest":"#d3e4fe","inverse-surface":"#213145","primary-container":"#0f766e","on-primary-fixed":"#00201d","error-container":"#ffdad6","primary-fixed-dim":"#80d5cb","outline":"#6e7977","surface":"#f8f9ff","on-tertiary-fixed-variant":"#3f465c","secondary-container":"#e21e49","surface-container-lowest":"#ffffff","secondary-fixed":"#ffdada","on-surface-variant":"#3e4947","secondary":"#ba0035","tertiary-fixed":"#dae2fd","primary":"#005c55","on-background":"#0b1c30","on-tertiary-fixed":"#131b2e","on-surface":"#0b1c30","surface-container-low":"#eff4ff","surface-tint":"#006a63","on-primary":"#ffffff","on-primary-container":"#a3faef","error":"#ba1a1a","tertiary-fixed-dim":"#bec6e0","on-tertiary-container":"#e4e9ff","inverse-primary":"#80d5cb","tertiary-container":"#616980","secondary-fixed-dim":"#ffb3b6"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xs":"0.25rem","gutter-mobile":"1rem","space-lg":"1.5rem",gutter:"1.5rem","margin-mobile":"1rem","space-sm":"0.5rem","space-xl":"2.5rem","space-md":"1rem",margin:"2rem"},fontFamily:{"display-lg-mobile":["Plus Jakarta Sans"],"numeric-metric":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"title-sm":["Plus Jakarta Sans"]},fontSize:{"display-lg-mobile":["2.25rem",{lineHeight:"2.75rem",letterSpacing:"-0.02em",fontWeight:"700"}],"numeric-metric":["1.75rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"700"}],"body-md":["0.9375rem",{lineHeight:"1.5rem",fontWeight:"400"}],"display-lg":["3rem",{lineHeight:"3.5rem",letterSpacing:"-0.025em",fontWeight:"700"}],"body-lg":["1.125rem",{lineHeight:"1.75rem",fontWeight:"400"}],"body-sm":["0.8125rem",{lineHeight:"1.25rem",fontWeight:"400"}],"headline-xl":["2rem",{lineHeight:"2.5rem",letterSpacing:"-0.02em",fontWeight:"600"}],"label-md":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.05em",fontWeight:"600"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.01em",fontWeight:"600"}],"label-lg":["0.9375rem",{lineHeight:"1.25rem",letterSpacing:"0.01em",fontWeight:"600"}],"headline-xl-mobile":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.015em",fontWeight:"600"}],"title-sm":["1rem",{lineHeight:"1.5rem",fontWeight:"600"}]}}}};</script><link rel="stylesheet" href="css/styles.css"></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen" data-page="salidas"><div class="flex flex-col min-h-screen"><header class="global-header">
+  <div class="global-header-inner">
+    <div class="global-header-left">
+      <button aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false" class="global-menu-toggle" id="mobileMenuToggleBtn" type="button">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+      </button>
+      <nav aria-label="Navegación principal" class="global-desktop-nav">
+        <a class="global-nav-link "  data-path="dashboard" href="index.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+        <a class="global-nav-link "  data-path="ingresos" href="ingresos.html"><span class="material-symbols-outlined">arrow_circle_up</span><span>Ingresos</span></a>
+        <a class="global-nav-link is-active" aria-current="page" data-path="salidas" href="salidas.html"><span class="material-symbols-outlined">arrow_circle_down</span><span>Salidas</span></a>
+      </nav>
+    </div>
+    <div class="global-profile">
+      <span aria-hidden="true" class="global-profile-avatar"><span class="material-symbols-outlined">person</span></span>
+      <span class="global-profile-copy"><span class="global-profile-name">Admin Único</span><span class="global-profile-branch">Sucursal Central</span></span>
+    </div>
+    <a class="global-brand" href="index.html" aria-label="Perfumería SC, Sistema Contable">
+      <span class="global-brand-copy"><span class="global-brand-name">Perfumería SC</span><span class="global-brand-subtitle">Sistema Contable</span></span>
+      <span class="global-brand-icon"><span class="material-symbols-outlined">local_florist</span></span>
+    </a>
+    <a class="global-logout" data-path="login" href="login.html"><span class="material-symbols-outlined">logout</span><span>Cerrar Sesión</span></a>
+  </div>
+  <nav aria-label="Navegación móvil" class="global-mobile-menu hidden" id="mobile-menu">
+    <a class="global-nav-link "  data-path="dashboard" href="index.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+    <a class="global-nav-link "  data-path="ingresos" href="ingresos.html"><span class="material-symbols-outlined">arrow_circle_up</span><span>Ingresos</span></a>
+    <a class="global-nav-link is-active" aria-current="page" data-path="salidas" href="salidas.html"><span class="material-symbols-outlined">arrow_circle_down</span><span>Salidas</span></a>
+    <a class="global-mobile-logout" data-path="login" href="login.html"><span class="material-symbols-outlined">logout</span><span>Cerrar Sesión</span></a>
+  </nav>
+</header><main class="internal-main w-full pt-20 bg-background flex-1 px-space-xl py-space-xl max-w-[1440px] mx-auto" data-header-offset="none"><div class="flex flex-col w-full">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-lg mb-space-xl"><div class="flex flex-col gap-1"><div class="flex items-center gap-2"></div><h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Gestión de Salidas y Gastos</h1><p class="font-body-md text-body-md text-on-surface-variant">Control centralizado de compras de esencias, frascos, empaques y costos operativos en Colombia.</p></div><div class="flex items-center justify-between sm:justify-end gap-space-md expense-summary-actions"><div class="flex items-center gap-3 bg-surface-container-lowest border border-outline-variant/30 px-4 py-2.5 rounded-xl shadow-sm"><div class="w-10 h-10 rounded-xl bg-error-container text-secondary-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[22px]">trending_down</span></div><div class="flex flex-col"><span class="font-label-md text-label-md uppercase tracking-wider text-outline leading-tight">Egresos Totales del Mes</span><div class="flex items-baseline gap-1.5 mt-0.5"><span class="font-numeric-metric text-numeric-metric text-on-surface font-bold leading-none">$12.820.000</span><span class="font-label-md text-label-md text-outline font-semibold leading-none">COP</span></div></div></div><button class="inline-flex items-center gap-2 px-space-lg h-12 bg-secondary-container text-on-secondary-container rounded-xl font-label-lg text-label-lg shadow-md hover:opacity-90 active:scale-95 transition-all" id="btn-abrir-modal" type="button"><span class="material-symbols-outlined text-[20px]">add_circle</span><span>Registrar Salida / Gasto</span></button></div></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl"><div class="lg:col-span-4 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between"><div><div class="flex items-center justify-between mb-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-outline">Presupuesto Ejecutado</span><span class="font-label-md text-label-md text-secondary-container bg-secondary-fixed/50 px-2 py-0.5 rounded-full">80% de Límite</span></div><div class="flex flex-wrap items-baseline gap-2 mb-2"><span class="font-display-lg text-display-lg text-on-surface leading-none">$ 12.820.000</span><span class="font-body-sm text-body-sm text-outline">/ $ 16.000.000 COP</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Margen disponible: <strong class="text-primary font-semibold">$ 3.180.000 COP</strong> para el ciclo actual.</p></div><div class="mt-space-lg"><div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden flex"><div class="bg-secondary-container h-full" style="width: 44%;"></div><div class="bg-primary h-full" style="width: 25%;"></div><div class="bg-tertiary h-full" style="width: 20%;"></div><div class="bg-outline-variant h-full" style="width: 11%;"></div></div><div class="flex justify-between items-center mt-2 text-body-sm font-body-sm text-outline"><span>Insumos 44%</span><span>Envases 25%</span><span>Arriendo 20%</span><span>Otros 11%</span></div></div></div><div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-space-md expense-category-grid"><div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between"><div class="flex items-center justify-between mb-space-xs"><div class="w-9 h-9 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[20px]">science</span></div><span class="font-label-md text-label-md text-secondary-container font-semibold">44%</span></div><div><span class="font-label-md text-label-md uppercase tracking-wider text-outline block">Insumos y Esencias</span><span class="font-numeric-metric text-numeric-metric text-on-surface">$ 5.600.000</span><span class="font-body-sm text-body-sm text-outline-variant block mt-0.5">14 órdenes de lote</span></div></div><div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between"><div class="flex items-center justify-between mb-space-xs"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">liquor</span></div><span class="font-label-md text-label-md text-primary font-semibold">25%</span></div><div><span class="font-label-md text-label-md uppercase tracking-wider text-outline block">Frascos y Envases</span><span class="font-numeric-metric text-numeric-metric text-on-surface">$ 3.200.000</span><span class="font-body-sm text-body-sm text-outline-variant block mt-0.5">Frascos ámbar y spray</span></div></div><div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between"><div class="flex items-center justify-between mb-space-xs"><div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[20px]">store</span></div><span class="font-label-md text-label-md text-tertiary font-semibold">20%</span></div><div><span class="font-label-md text-label-md uppercase tracking-wider text-outline block">Alquiler y Servicios</span><span class="font-numeric-metric text-numeric-metric text-on-surface">$ 2.500.000</span><span class="font-body-sm text-body-sm text-outline-variant block mt-0.5">Luz, local y agua</span></div></div><div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between"><div class="flex items-center justify-between mb-space-xs"><div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_horiz</span></div><span class="font-label-md text-label-md text-on-surface-variant font-semibold">11%</span></div><div><span class="font-label-md text-label-md uppercase tracking-wider text-outline block">Otros y Mant.</span><span class="font-numeric-metric text-numeric-metric text-on-surface">$ 1.520.000</span><span class="font-body-sm text-body-sm text-outline-variant block mt-0.5">Cajas y paquetería</span></div></div></div></div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col">
+<div class="p-space-lg flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Historial de Salidas</h2>
+<span class="font-body-sm text-body-sm text-outline">Listado detallado de compras, gastos y retiros de caja</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm expense-history-filters">
+<div class="relative min-w-[240px]">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[20px]">search</span>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low rounded-xl text-on-surface placeholder:text-outline font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary-container" id="expenseSearch" placeholder="Buscar por folio, concepto..." type="text">
+</div>
+<select class="h-11 px-3 bg-surface-container-low rounded-xl text-on-surface font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary-container" id="expenseCategoryFilter">
+<option value="">Todas las Categorías</option><option value="inventario">Reabastecimiento de Inventario / Fragancias</option><option value="alquiler">Alquiler de Local / Sucursal</option><option value="servicios">Servicios Públicos (Luz, Agua, Internet)</option><option value="nomina">Nómina / Salarios</option><option value="empaque">Empaque y Presentación (Cajas, Bolsas)</option><option value="marketing">Publicidad y Marketing</option><option value="otro">Otro</option></select>
+<div class="flex bg-surface-container-low p-1 rounded-xl">
+<button aria-pressed="true" class="px-3 py-1.5 rounded-lg text-body-sm font-label-md bg-surface-container-lowest text-on-surface shadow-sm" type="button">Todos</button>
+<button aria-pressed="false" class="px-3 py-1.5 rounded-lg text-body-sm font-label-md text-on-surface-variant hover:text-on-surface" type="button">Con Factura</button>
+<button aria-pressed="false" class="px-3 py-1.5 rounded-lg text-body-sm font-label-md text-on-surface-variant hover:text-on-surface" type="button">Sin Factura</button>
+</div>
+<button aria-label="Exportar Reporte Excel" class="h-11 px-space-md flex items-center justify-center gap-2 bg-surface-container-high text-on-surface hover:bg-surface-variant font-label-lg text-label-lg rounded-xl transition-colors" data-export-report id="expenseExportButton" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="hidden sm:inline">Exportar Reporte</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low font-label-md text-label-md text-outline">
+<tr>
+<th class="py-3.5 px-space-lg">Folio</th>
+<th class="py-3.5 px-space-md">Fecha</th>
+<th class="py-3.5 px-space-md">Concepto / Detalle</th>
+<th class="py-3.5 px-space-md">Proveedor</th>
+<th class="py-3.5 px-space-md">Categoría</th>
+<th class="py-3.5 px-space-md">Pago</th>
+<th class="py-3.5 px-space-lg text-right">Monto (COP)</th>
+<th class="py-3.5 px-space-lg text-center">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md divide-y divide-surface-container-low"><tr class="hover:bg-surface-container-low/60 transition-colors"><td class="py-4 px-space-lg font-semibold text-on-surface">#EGR-0589</td><td class="py-4 px-space-md text-on-surface-variant">24 Oct, 2024</td><td class="py-4 px-space-md font-medium text-on-surface"><span>Lote 500 Frascos Difusores Vidrio Ámbar 100ml</span><span class="block font-body-sm text-outline">Orden reposición línea Amaderada Bogotá</span></td><td class="py-4 px-space-md text-on-surface-variant">Envases y Vidrios de Colombia S.A.S.</td><td class="py-4 px-space-md"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Frascos y Envases</span></td><td class="py-4 px-space-md"><div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[16px] text-outline">credit_card</span><span>Tarjeta Débito</span></div></td><td class="py-4 px-space-lg text-right font-numeric-metric text-secondary-container font-bold">-$ 1.850.000</td><td class="py-4 px-space-lg text-center"><div class="flex items-center justify-center gap-1 text-outline"><button class="p-1.5 hover:text-primary transition-colors rounded-lg hover:bg-surface-container-low" title="Ver Factura DIAN" type="button"><span class="material-symbols-outlined text-[20px]">description</span></button><button class="p-1.5 hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container-low" title="Editar" type="button"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="p-1.5 hover:text-secondary-container transition-colors rounded-lg hover:bg-error-container/40" title="Eliminar" type="button"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr><tr class="hover:bg-surface-container-low/60 transition-colors"><td class="py-4 px-space-lg font-semibold text-on-surface">#EGR-0588</td><td class="py-4 px-space-md text-on-surface-variant">23 Oct, 2024</td><td class="py-4 px-space-md font-medium text-on-surface"><span>Concentrado Aceite Bergamota y Sándalo 5L</span><span class="block font-body-sm text-outline">Materia prima grado cosmético importada</span></td><td class="py-4 px-space-md text-on-surface-variant">Aromas &amp; Esencias Medellín S.A.</td><td class="py-4 px-space-md"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-fixed text-secondary font-label-md text-label-md"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>Insumos y Esencias</span></td><td class="py-4 px-space-md"><div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[16px] text-outline">account_balance</span><span>PSE / Bancolombia</span></div></td><td class="py-4 px-space-lg text-right font-numeric-metric text-secondary-container font-bold">-$ 3.750.000</td><td class="py-4 px-space-lg text-center"><div class="flex items-center justify-center gap-1 text-outline"><button class="p-1.5 hover:text-primary transition-colors rounded-lg hover:bg-surface-container-low" title="Ver Factura DIAN" type="button"><span class="material-symbols-outlined text-[20px]">description</span></button><button class="p-1.5 hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container-low" title="Editar" type="button"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="p-1.5 hover:text-secondary-container transition-colors rounded-lg hover:bg-error-container/40" title="Eliminar" type="button"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr><tr class="hover:bg-surface-container-low/60 transition-colors"><td class="py-4 px-space-lg font-semibold text-on-surface">#EGR-0587</td><td class="py-4 px-space-md text-on-surface-variant">21 Oct, 2024</td><td class="py-4 px-space-md font-medium text-on-surface"><span>Alquiler Local Comercial Sucursal Principal</span><span class="block font-body-sm text-outline">Canon mensual mes en curso</span></td><td class="py-4 px-space-md text-on-surface-variant">Inmobiliaria Centro Comercial Andino</td><td class="py-4 px-space-md"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-tertiary font-label-md text-label-md"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Alquiler y Servicios</span></td><td class="py-4 px-space-md"><div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[16px] text-outline">account_balance</span><span>Transferencia Davivienda</span></div></td><td class="py-4 px-space-lg text-right font-numeric-metric text-secondary-container font-bold">-$ 2.500.000</td><td class="py-4 px-space-lg text-center"><div class="flex items-center justify-center gap-1 text-outline"><button class="p-1.5 hover:text-primary transition-colors rounded-lg hover:bg-surface-container-low" title="Ver Factura DIAN" type="button"><span class="material-symbols-outlined text-[20px]">description</span></button><button class="p-1.5 hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container-low" title="Editar" type="button"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="p-1.5 hover:text-secondary-container transition-colors rounded-lg hover:bg-error-container/40" title="Eliminar" type="button"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr><tr class="hover:bg-surface-container-low/60 transition-colors"><td class="py-4 px-space-lg font-semibold text-on-surface">#EGR-0586</td><td class="py-4 px-space-md text-on-surface-variant">19 Oct, 2024</td><td class="py-4 px-space-md font-medium text-on-surface"><span>Cajas de Presentación Rígidas con Foil Dorado</span><span class="block font-body-sm text-outline">1,000 unidades colección Noir</span></td><td class="py-4 px-space-md text-on-surface-variant">Cartonajes e Impresos Cali</td><td class="py-4 px-space-md"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md"><span class="w-1.5 h-1.5 rounded-full bg-outline"></span>Empaques y Cajas</span></td><td class="py-4 px-space-md"><div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[16px] text-outline">payments</span><span>Efectivo Caja Menor</span></div></td><td class="py-4 px-space-lg text-right font-numeric-metric text-secondary-container font-bold">-$ 1.050.000</td><td class="py-4 px-space-lg text-center"><div class="flex items-center justify-center gap-1 text-outline"><button class="p-1.5 text-outline-variant cursor-not-allowed" title="Sin Factura" type="button"><span class="material-symbols-outlined text-[20px]">receipt</span></button><button class="p-1.5 hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container-low" title="Editar" type="button"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="p-1.5 hover:text-secondary-container transition-colors rounded-lg hover:bg-error-container/40" title="Eliminar" type="button"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr><tr class="hover:bg-surface-container-low/60 transition-colors"><td class="py-4 px-space-lg font-semibold text-on-surface">#EGR-0585</td><td class="py-4 px-space-md text-on-surface-variant">17 Oct, 2024</td><td class="py-4 px-space-md font-medium text-on-surface"><span>Mantenimiento Preventivo Selladora Neumática</span><span class="block font-body-sm text-outline">Ajuste de válvulas y sellos de silicona</span></td><td class="py-4 px-space-md text-on-surface-variant">Mantenimientos Industriales SAS</td><td class="py-4 px-space-md"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md"><span class="w-1.5 h-1.5 rounded-full bg-outline"></span>Mantenimiento</span></td><td class="py-4 px-space-md"><div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm"><span class="material-symbols-outlined text-[16px] text-outline">credit_card</span><span>Tarjeta Débito</span></div></td><td class="py-4 px-space-lg text-right font-numeric-metric text-secondary-container font-bold">-$ 470.000</td><td class="py-4 px-space-lg text-center"><div class="flex items-center justify-center gap-1 text-outline"><button class="p-1.5 hover:text-primary transition-colors rounded-lg hover:bg-surface-container-low" title="Ver Factura DIAN" type="button"><span class="material-symbols-outlined text-[20px]">description</span></button><button class="p-1.5 hover:text-on-surface transition-colors rounded-lg hover:bg-surface-container-low" title="Editar" type="button"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="p-1.5 hover:text-secondary-container transition-colors rounded-lg hover:bg-error-container/40" title="Eliminar" type="button"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr></tbody>
+</table>
+</div>
+<div class="p-space-md border-t border-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<span class="font-body-sm text-body-sm text-outline">
+        Mostrando <strong class="text-on-surface">5</strong> de <strong class="text-on-surface">32</strong> salidas registradas
+      </span>
+<div class="flex items-center gap-1.5">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-outline hover:bg-surface-container-low disabled:opacity-30" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-lg font-label-md text-label-md bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-sm" type="button">1</button>
+<button class="w-9 h-9 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low flex items-center justify-center" type="button">2</button>
+<button class="w-9 h-9 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low flex items-center justify-center" type="button">3</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-outline hover:bg-surface-container-low" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- BACKDROP OVERLAY & MODAL DIALOG CONTAINER -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-inverse-surface/40 backdrop-blur-sm hidden" id="modal-container">
+<div class="relative w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-xl flex flex-col my-auto overflow-hidden animate-[fadeIn_0.2s_ease-out]">
+<!-- Modal Header -->
+<div class="px-6 sm:px-8 pt-6 pb-4 bg-surface-container-lowest flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-error-container text-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Registrar Salida o Gasto Operativo</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Control y asiento de egresos para Perfumería SC</p>
+</div>
+</div>
+<button aria-label="Cerrar ventana" class="w-9 h-9 rounded-xl flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors" id="btn-cerrar-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body (Formulario Claro y Accesible) -->
+<form class="px-6 sm:px-8 py-2 flex flex-col gap-5 overflow-y-auto max-h-[calc(85vh-160px)]" id="salida-form">
+<!-- Campo de Monto Principal en COP -->
+<div class="bg-surface-container-low p-4 sm:p-5 rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-secondary-container font-bold tracking-wide uppercase flex items-center gap-1.5" for="monto-input">
+<span class="material-symbols-outlined text-[16px]">price_change</span>
+<span>Importe Total del Gasto (COP)</span>
+</label>
+<span class="font-label-md text-label-md text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded-full">Moneda Oficial</span>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-4 font-headline-xl text-headline-xl text-secondary font-bold">$</span>
+<input class="w-full h-14 pl-10 pr-20 bg-surface-container-lowest text-on-surface font-headline-xl text-headline-xl font-bold rounded-xl shadow-sm focus:outline-none focus:bg-surface-container-lowest text-right tabular-nums transition-all" id="monto-input" name="monto_cop" placeholder="0" required="" type="text">
+<span class="absolute right-4 font-label-lg text-label-lg text-on-surface-variant font-semibold">COP</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-right">Un millón doscientos cincuenta mil pesos m/cte</span>
+</div>
+<!-- Grid de Metadatos del Gasto -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Fecha del Gasto -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant" for="fecha-gasto">Fecha de Operación</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[20px] text-outline pointer-events-none">event</span>
+<input class="w-full h-12 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl focus:bg-surface-container-lowest focus:outline-none transition-all" id="fecha-gasto" name="fecha" required="" type="datetime-local">
+</div>
+</div>
+<!-- Categoría de Salida -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant" for="categoria-select">Categoría Presupuestal</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[20px] text-outline pointer-events-none">category</span>
+<select class="w-full h-12 pl-10 pr-10 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl appearance-none focus:bg-surface-container-lowest focus:outline-none transition-all cursor-pointer" id="categoria-select" name="categoria" required="">
+<option selected="" value="envases">Frascos y Envases Ámbar</option>
+<option value="insumos">Insumos y Esencias Concentradas</option>
+<option value="empaques">Empaques, Cajas y Cintas</option>
+<option value="arriendo">Alquiler y Servicios del Local</option>
+<option value="mantenimiento">Mantenimiento, Aseo y Otros</option>
+<option value="otro">Otro</option></select>
+<span class="material-symbols-outlined absolute right-3.5 text-[20px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Proveedor / Beneficiario -->
+<div class="flex flex-col gap-1.5 sm:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant" for="proveedor-input">Proveedor / Beneficiario</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[20px] text-outline pointer-events-none">storefront</span>
+<input class="w-full h-12 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl focus:bg-surface-container-lowest focus:outline-none transition-all" id="proveedor-input" name="proveedor" placeholder="Nombre comercial o persona" type="text">
+</div>
+</div>
+<!-- Concepto / Detalle Específico -->
+<div class="flex flex-col gap-1.5 sm:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant" for="concepto-input">Concepto / Detalle del Gasto</label>
+<div class="relative flex items-start">
+<textarea class="w-full p-3.5 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl focus:bg-surface-container-lowest focus:outline-none transition-all resize-none" id="concepto-input" name="concepto" placeholder="Descripción específica del insumo o servicio adquirido..." required="" rows="2"></textarea>
+</div>
+</div>
+<!-- Método de Pago -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant" for="metodo-pago">Método de Pago</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[20px] text-outline pointer-events-none">account_balance_wallet</span>
+<select class="w-full h-12 pl-10 pr-10 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl appearance-none focus:bg-surface-container-lowest focus:outline-none transition-all cursor-pointer" id="metodo-pago" name="metodo_pago" required="">
+<option selected="" value="bancolombia">PSE / Bancolombia Principal</option>
+<option value="davivienda">Transferencia Davivienda</option>
+<option value="tarjeta">Tarjeta Débito Empresarial</option>
+<option value="caja">Efectivo (Caja Menor Local)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3.5 text-[20px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Factura / Referencia de Soporte -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant" for="factura-soporte">Factura / Soporte Fiscal</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[20px] text-outline pointer-events-none">receipt</span>
+<input class="w-full h-12 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl focus:bg-surface-container-lowest focus:outline-none transition-all" id="factura-soporte" name="comprobante" placeholder="Ej: FE-1092 o Recibo #042" type="text">
+</div>
+</div>
+<!-- Zona para Adjuntar Archivo o Fotografía -->
+<div class="flex flex-col gap-1.5 sm:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Comprobante o Factura Digital</label>
+<div class="w-full p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col sm:flex-row items-center justify-between gap-3 cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">attach_file</span>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">soporte_fe4921_vidrios_col.pdf</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1.4 MB • Subido correctamente</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-lg bg-surface-container text-primary font-label-md text-label-md">Reemplazar</span>
+<button class="w-8 h-8 rounded-lg text-outline hover:text-secondary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</form>
+<!-- Modal Footer (Botones de Acción Claros) -->
+<div class="px-6 sm:px-8 py-5 bg-surface-container-lowest flex flex-col-reverse sm:flex-row items-center justify-between gap-3 shadow-sm">
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
+<span>Asiento contable irreversible por Admin</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none h-12 px-6 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center" id="btn-cancelar-modal" type="button">
+            Cancelar
+          </button>
+<button class="flex-1 sm:flex-none h-12 px-8 rounded-xl bg-secondary-container hover:bg-secondary text-on-secondary font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2" id="btn-guardar-salida" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Registrar Salida</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+</div></main></div>
+
+
+
+
+<script src="js/api.js" defer></script><script src="js/ui.js" defer></script></body></html>

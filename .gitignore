@@ -1,0 +1,31 @@
+_referencia_diseño
+SPEC.md
+
+# Python virtual environments
+.venv/
+.venv-*/
+venv/
+
+# Python generated files and test caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local logs and downloaded financial reports
+*.log
+*.xlsx
+
+# Operating system files
+.DS_Store
+Thumbs.db
