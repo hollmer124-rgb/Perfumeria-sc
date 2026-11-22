@@ -17,7 +17,7 @@ from app.schemas import (
 
 router = APIRouter(prefix="/api/dashboard", tags=["Dashboard"])
 COLOMBIA_TZ = timezone(timedelta(hours=-5))
-PAGE_SIZE = 1000
+PAGE_SIZE = 5000
 MONTH_LABELS = ("Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic")
 WEEKDAY_LABELS = ("Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom")
 
