@@ -646,6 +646,19 @@ main.internal-main[data-header-offset="none"] {
     max-height: calc(100dvh - 2rem);
     overflow-y: auto;
   }
+
+  #incomeModal > [role="dialog"] {
+    overflow: hidden;
+  }
+
+  #ingresoForm {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: calc(85dvh - 160px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 @media (max-width: 359px) {
