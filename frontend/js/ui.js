@@ -25,6 +25,7 @@
   const expenseState = { records: [], filtered: [], page: 0, request: 0, receiptFilter: "" };
   const pageSize = 10;
   const dashboardMovementState = { page: 0, total: 0, request: 0, loading: false, pageSize: 6, period: "todos" };
+  const dashboardTimeSeriesState = { page: 0, totalPoints: 0 };
   let dashboardCharts = [];
   let dashboardChartsInitialized = false;
 
@@ -704,6 +705,43 @@
     }
   }
 
+  function initializeTimeSeriesNavigation() {
+    const previous = document.getElementById("timeSeriesPrevious");
+    const next = document.getElementById("timeSeriesNext");
+    if (!previous || !next) return;
+    previous.addEventListener("click", function () {
+      const maxPage = Math.floor(Math.max(0, dashboardTimeSeriesState.totalPoints - 1) / 6);
+      if (dashboardTimeSeriesState.page < maxPage) {
+        dashboardTimeSeriesState.page += 1;
+        refreshTimeSeriesChart();
+      }
+    });
+    next.addEventListener("click", function () {
+      if (dashboardTimeSeriesState.page > 0) {
+        dashboardTimeSeriesState.page -= 1;
+        refreshTimeSeriesChart();
+      }
+    });
+  }
+
+  function refreshTimeSeriesChart() {
+    if (!dashboardCharts[0] || !dashboardTimeSeriesState.labels) return;
+    const labels = dashboardTimeSeriesState.labels;
+    const incomes = dashboardTimeSeriesState.incomes;
+    const expenses = dashboardTimeSeriesState.expenses;
+    const windowSize = 6;
+    const end = Math.min(labels.length, Math.max(windowSize, labels.length - dashboardTimeSeriesState.page * windowSize));
+    const start = Math.max(0, end - windowSize);
+    dashboardCharts[0].data.labels = labels.slice(start, end);
+    dashboardCharts[0].data.datasets[0].data = incomes.slice(start, end);
+    dashboardCharts[0].data.datasets[1].data = expenses.slice(start, end);
+    dashboardCharts[0].update();
+    const previous = document.getElementById("timeSeriesPrevious");
+    const next = document.getElementById("timeSeriesNext");
+    if (previous) previous.disabled = start === 0;
+    if (next) next.disabled = end === labels.length;
+  }
+
   function createDashboardCharts() {
     if (typeof window.Chart !== "function") throw new Error("Chart.js no está disponible para mostrar el dashboard.");
     const descriptions = [
@@ -971,10 +1009,12 @@
       renderDashboardMovements(summary);
       updateDashboardDistribution(summary);
       if (dashboardCharts[0]) {
-        dashboardCharts[0].data.labels = summary.serie_temporal.labels;
-        dashboardCharts[0].data.datasets[0].data = summary.serie_temporal.ingresos;
-        dashboardCharts[0].data.datasets[1].data = summary.serie_temporal.salidas;
-        dashboardCharts[0].update();
+        dashboardTimeSeriesState.labels = summary.serie_temporal.labels;
+        dashboardTimeSeriesState.incomes = summary.serie_temporal.ingresos;
+        dashboardTimeSeriesState.expenses = summary.serie_temporal.salidas;
+        dashboardTimeSeriesState.totalPoints = summary.serie_temporal.labels.length;
+        if (period) dashboardTimeSeriesState.page = 0;
+        refreshTimeSeriesChart();
       }
       if (dashboardCharts[1]) {
         dashboardCharts[1].data.labels = summary.distribucion_salidas.labels;
@@ -1279,6 +1319,7 @@
     if (document.body.dataset.page === "dashboard") {
       initializeDashboardPeriods();
       initializeDashboardPagination();
+      initializeTimeSeriesNavigation();
       loadDashboard(0);
     }
     if (document.body.dataset.page === "ingresos") {
